@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package stock;
+
+service StockService {
+  rpc GetStock (StockRequest) returns (StockHistoryResponse);
+}
+
+message StockRequest {
+  string symbol = 1;
+}
+
+message StockHistoryResponse {
+  string symbol = 1;
+  map<string, StockData> history = 2;
+}
+
+message StockData {
+  string open = 1;
+  string high = 2;
+  string low = 3;
+  string close = 4;
+  string volume = 5;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kubernetes Pods</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Kubernetes Pods</h1>
+    <button onclick="listPods()">Listar Pods</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function listPods() {
+      fetch('/pods')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          document.getElementById('result').innerText = 'Erro ao obter os pods: ' + error.message;
+          console.error('Error:', error);
+        });
+    }
+  </script>
+</body>
+</html>

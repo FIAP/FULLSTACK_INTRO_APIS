@@ -1,0 +1,39 @@
+### GET Request para obter dados de um ativo
+GET http://localhost:3000/stock/PETR4.SA
+Accept: application/json
+
+### POST Request para criar dados de um ativo
+POST http://localhost:3000/stock
+Content-Type: application/json
+
+{
+  "symbol": "PETR4.SA",
+  "data": {
+    "2024-05-26": {
+      "1. open": "28.00",
+      "2. high": "28.50",
+      "3. low": "27.80",
+      "4. close": "28.30",
+      "5. volume": "12345678"
+    }
+  }
+}
+
+### PUT Request para atualizar dados de um ativo
+PUT http://localhost:3000/stock/PETR4.SA
+Content-Type: application/json
+
+{
+  "data": {
+    "2024-05-26": {
+      "1. open": "29.00",
+      "2. high": "29.50",
+      "3. low": "28.80",
+      "4. close": "29.30",
+      "5. volume": "87654321"
+    }
+  }
+}
+
+### DELETE Request para deletar dados de um ativo
+DELETE http://localhost:3000/stock/PETR4.SA

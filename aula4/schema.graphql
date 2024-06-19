@@ -1,0 +1,31 @@
+type Team {
+  name: String!
+  shield: String!
+  initials: String!
+}
+
+type Match {
+  id: ID!
+  championshipId: Int!
+  championshipName: String!
+  hour: String!
+  stadium: String!
+  homeTeam: Team!
+  awayTeam: Team!
+  homeScore: Int!
+  awayScore: Int!
+  status: String!
+  penalties: Boolean!
+  homePenaltyScore: Int!
+  awayPenaltyScore: Int!
+}
+
+type Query {
+  match(id: ID!): Match
+  matches(championshipId: Int!): [Match]
+}
+
+type Mutation {
+  updateScore(matchId: ID!, homeScore: Int!, awayScore: Int!): Match
+  updateStatus(matchId: ID!, status: String!): Match
+}
